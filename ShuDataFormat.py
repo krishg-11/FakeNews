@@ -2,22 +2,6 @@ import json
 import os
 
 
-'''
-url
-text
-images
-top_img
-keywords
-authors
-canonical_link
-title
-meta_data
-movies
-publish_date
-source
-summary
-'''
-
 def importFolderIntoData(data, folder, count, label): #given current data dict, add data from all files in given folder into data dict
     for subfolder in os.listdir(folder):
         subfolderpath = folder + "/" + subfolder
@@ -37,7 +21,7 @@ def importFolderIntoData(data, folder, count, label): #given current data dict, 
 
     return data, count
 
-path = "./FakeNewsNet/code/fakenewsnet_dataset/"
+path = "./fakenewsnet_dataset/"
 
 data = json.load(open("data.json")) # data = {"text":{"0":"...", "1":... etc.}, "label":{"0":1, "1", 0 etc.}}
 count = len(data["text"])

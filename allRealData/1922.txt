@@ -1,0 +1,24 @@
+http://data.bls.gov/timeseries/CES4244100001?data_tool=XGtable
+
+
+
+Bureau of Labor Statistics Data
+
+Series Id: CES4244100001
+
+Seasonally Adjusted
+
+Series Title: All employees, thousands, motor vehicle and parts dealers, seasonally adjusted
+
+Super Sector: Retail trade
+
+Industry: Motor vehicle and parts dealers
+
+NAICS Code: 441
+
+Data Type: ALL EMPLOYEES, THOUSANDS
+
+
+
+Download:
+

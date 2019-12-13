@@ -1,0 +1,164 @@
+https://web.archive.org/web/20100716185746/http://www.tsa.gov:80/approach/tech/ait/faqs.shtm
+
+Transportation Security Administration, Tsa, Glen Price
+
+TSA: Frequently Asked Questions
+
+Frequently Asked Questions
+
+Advanced Imaging Technology
+
+Q. What is advanced imaging technology?
+
+A. Advanced imaging technology safely screens passengers for both metallic and non-metallic threats, including weapons and explosives, which may be concealed under a passengers’ clothing without physical contact to keep the traveling public secure.
+
+Q. Does imaging technology work?
+
+A. Yes. Imaging technology is a highly effective security tool, which can detect both metallic and non-metallic items that may pose a threat to aviation security. AIT is a proven technology and TSA is highly confident in its detection capability.
+
+Q. Is imaging technology optional?
+
+A. Yes, imaging technology screening is optional for all passengers. Passengers who do not wish to receive imagining technology screening will receive alternative screening, including a physical pat-down.
+
+Q. Is imaging technology safe?
+
+A. Advanced imaging technology is safe and meets national health and safety standards. Backscatter technology was evaluated by the Food and Drug Administration’s (FDA) Center for Devices and Radiological Health (CDRH), the National Institute for Standards and Technology (NIST), and the Johns Hopkins University Applied Physics Laboratory (APL). For comparison, a single scan using backscatter technology produces exposure equivalent to two minutes of flying on an airplane, and the energy projected by millimeter wave technology is thousands of times less than a cell phone transmission.
+
+Q. What has TSA done to protect my privacy?
+
+A. TSA has implemented strict measures to protect passenger privacy, which is ensured through the anonymity of the image. A remotely located officer views the image and does not see the passenger, and the officer assisting the passenger cannot view the image. The image cannot be stored, transmitted or printed, and is deleted immediately once viewed. Additionally, there is a privacy algorithm applied to blur the image.
+
+Q. How does the imaging technology screening process work?
+
+A. Each passenger will be asked to take everything out of their pockets (including non-metallic items) and walk into the imaging portal. Once inside, they will be asked to stand in a position and remain still for a few seconds while the technology creates an image of the passenger in real time. A remotely located officer views the image. After review and resolution of any anomalies, the image is immediately deleted. The passenger will then be free to exit the opposite side of the portal and collect belongings. The entire process takes a matter of seconds, compared to a 2-4 minute pat-down.
+
+Q. How does backscatter imaging technology work?
+
+A. Backscatter technology projects an ionizing X-ray beam over the body surface at high speed. The reflection, or “backscatter,” of the beam is detected, digitized and displayed on a monitor. Each full body scan produces less than 10 microREM of emission, the equivalent to the exposure each person receives in about 2 minutes of airplane flight at altitude. It produces an image that resembles a chalk-etching, and has a privacy filter applied to the entire body.
+
+Q. How does millimeter wave imaging technology work?
+
+A. Millimeter wave technology bounces harmless electromagnetic waves off of the human body to create a black and white image. It is safe, and the energy emitted by millimeter wave technology is thousands of times less than what is permitted for a cell phone. Millimeter wave technology has a privacy filter that blurs facial features.
+
+
+
+Q. Where are imaging technology machines located?
+
+A. Currently, there are 127 advanced imaging technology machines located at 36 airports nationwide. Airports that have the technology include the following.
+
+Albuquerque International Sunport Airport
+
+Baltimore/Washington International Thurgood Marshall Airport
+
+Boston Logan International Airport
+
+Charlotte Douglas International Airport
+
+Chicago O'Hare International Airport
+
+Cincinnati/Northern Kentucky International Airport
+
+Corpus Christi International Airport
+
+Denver International Airport
+
+Dallas/Fort Worth International Airport
+
+Detroit Metro Airport
+
+El Paso International Airport
+
+Fort Lauderdale-Hollywood International Airport
+
+Fort Wayne International Airport
+
+Harlingen/Valley International Airport
+
+Hartsfield-Jackson Atlanta International Airport
+
+Indianapolis International Airport
+
+Jacksonville International Airport
+
+Kansas City International Airport
+
+Los Angeles International Airport
+
+McAllen Miller Airport
+
+McCarran International Airport
+
+Miami International Airport
+
+San Jose International Airprot
+
+Omaha Eppley Airfield Airport
+
+Phoenix Sky Harbor International Airport
+
+Port Columbus International Airport
+
+Raleigh-Durham International Airport
+
+Richmond International Airport
+
+Ronald Reagan Washington National Airport
+
+Salt Lake City International Airport
+
+San Francisco International Airport
+
+Tampa International Airport
+
+Tulsa International Airport
+
+Boise Airport
+
+Brownsville/South Padre Island International Airport
+
+Buffalo Niagara International Airport
+
+Gulfport-Biloxi International Airport
+
+Houston William P. Hobby Airport
+
+La Guardia International Airport
+
+Laredo International Airport
+
+Luis Muñoz Marín International Airport
+
+Oakland International Airport
+
+Orlando International Airport
+
+Pittsburgh International Airport
+
+Reno-Tahoe International Airport
+
+San Diego International Airport
+
+Spokane International Airport
+
+T. F. Green International Airport
+
+Q. Where else is advanced imaging technology used?
+
+A. Domestic locations:
+
+Colorado Springs Court House (CO
+
+) Cook County Court House (IL)
+
+Department of Corrections facility (PA)
+
+Douglas County Colorado Justice Center
+
+Montana State Prison
+
+Utah State Correctional Facility
+
+International locations:Advanced imaging technology is used in hundreds of locations around the world in aviation and mass transit environments, including Canada, France, the Netherlands, Nigeria and the United Kingdom.
+
+If you need additional information, please e-mail the TSA Contact Center at TSA-ContactCenter@dhs.gov.
+

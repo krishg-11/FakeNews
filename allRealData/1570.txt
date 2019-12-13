@@ -1,0 +1,10 @@
+http://politicaladarchive.org/ad/PolAd_BernieSanders_7h37u/
+
+
+
+Political TV Ad Archive » PolAd
+
+About the Dataset
+
+The Political TV Ad Archive, powered by the Internet Archive, is pulling together resources from a variety of sources to create an archive of political TV ads in key primary states. Each ad has its own canonical web page (sample here), and associated downloadable metadata. Some metadata are added by the Internet Archive; some generated via the media itself (such as count of ads, how many times an ad has aired, etc.); and some come from our partners.
+

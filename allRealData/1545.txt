@@ -1,0 +1,8 @@
+http://data.bls.gov/timeseries/CES0500000001?output_view=net_1mth
+
+
+
+Bureau of Labor Statistics Data
+
+
+

@@ -1,0 +1,8 @@
+http://www.youtube.com/watch?v=Ud3mMj0AZZk
+
+Getsimplestring Authorname, Data.Playlistauthorname, Getsimplestring Data.Shortbylinetext
+
+YouTube
+
+Go to the Legal Help page to request content changes for legal reasons.
+

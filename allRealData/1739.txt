@@ -1,0 +1,14 @@
+http://data.bls.gov/PDQ/servlet/SurveyOutputServlet
+
+
+
+Notice: Data not available: U.S. Bureau of Labor Statistics
+
+Notice
+
+Tuesday, December 10, 2019 12:37 AM
+
+The database is currently unavailable.
+
+Your request was invalid for this Data Access Service. Please attempt other data requests. Thank you for using LABSTAT.
+
