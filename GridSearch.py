@@ -1,3 +1,12 @@
+
+#avoid unnecessary warnings
+import os
+import warnings
+warnings.filterwarnings('ignore')
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+import tensorflow as tf
+
 import numpy as np
 import pandas as pd
 from keras.preprocessing.text import Tokenizer
@@ -8,12 +17,7 @@ from sklearn.model_selection import train_test_split
 from keras.callbacks import EarlyStopping
 from keras.layers import Dropout
 import itertools
-import os
-import warnings
 
-#avoid unnecessary warnings
-warnings.filterwarnings('ignore')
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 df = pd.read_json("data.json")
 
@@ -45,6 +49,12 @@ def makeModel(dropout=0.2, lstmOutputSize=100, optimizer='adam'):
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
 
+infile = open("hyperparameterData.csv")
+accuracyDict = {} #keeps track of accuracies from various combinations of hyperparameters
+for line in infile:
+    epochs,batchSize,optimizer,dropout,lstmOutputSize,acc = line.split(",")
+    accuracyDict[(int(epochs),int(batchSize),optimizer,float(dropout),int(lstmOutputSize))] = float(acc)
+
 #list of all potential hyperparameters
 epochsList = [1,2,3,4,5,6]
 batchSizes = [64, 32, 16]
@@ -53,20 +63,13 @@ dropouts = [0.5, 0.4, 0.2]
 lstmOutputSizes = [50, 75, 100, 150]
 
 combinations = [epochsList, batchSizes, optimizers, dropouts, lstmOutputSizes]
-accuracyDict = {} #keeps track of accuracies from various combinations of hyperparameters
 
+outfile = open("hyperparameterData.csv", "a")
 for epochs,batchSize,optimizer,dropout,lstmOutputSize in itertools.product(*combinations): #make, fit, and evaluate model for each combination of hyperparameters
-    print("Running with Epochs: {}; BatchSize: {}; Optimzer: {}; Dropout: {}; LstmOutputSize: {}".format(epochs,batchSize,optimizer,dropout,lstmOutputSize))
+    if((epochs,batchSize,optimizer,dropout,lstmOutputSize) in accuracyDict): continue
     model = makeModel(dropout=dropout, lstmOutputSize=lstmOutputSize, optimizer=optimizer)
+    print("Running Epochs: {}; BatchSize: {}; Optimzer: {}; Dropout: {}; LstmOutputSize: {}".format(epochs,batchSize,optimizer,dropout,lstmOutputSize))
     history = model.fit(X_train, Y_train, epochs=epochs, batch_size=batchSize,validation_split=0.1,callbacks=[EarlyStopping(monitor='val_loss', patience=3, min_delta=0.0001)], verbose=0)
     accr = model.evaluate(X_test,Y_test,verbose=0)
-    print('\tLoss: {:0.4f}\n \tAccuracy: {:0.4f}\n'.format(accr[0],accr[1]))
-    accuracyDict[accr[1]] = (epochs,batchSize,optimizer,dropout,lstmOutputSize)
-
-print("results:", accuracyDict) #output raw results
-
-#output best hyperparameter combination
-bestAccuracy = max(accuracyDict)
-epochs,batchSize,optimizer,dropout,lstmOutputSize = accuracyDict[bestAccuracy]
-print("\nBest Accuracy: {:0.5f}".format(bestAccuracy))
-print("From hyperparameters: Epochs: {}; BatchSize: {}; Optimzer: {}; Dropout: {}; LstmOutputSize: {}".format(epochs,batchSize,optimizer,dropout,lstmOutputSize))
+    outfile.write("{},{},{},{},{},{}\n".format(epochs,batchSize,optimizer,dropout,lstmOutputSize,accr[1]))
+    accuracyDict[(epochs,batchSize,optimizer,dropout,lstmOutputSize)] = accr[1]
