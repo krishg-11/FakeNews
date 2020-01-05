@@ -1,6 +1,6 @@
 import json
 
-data = json.load(open("data.json"))
+data = json.load(open("../data.json"))
 refinedData = {"text":{}, "label":{}}
 setSeen = set()
 
@@ -13,5 +13,5 @@ for i in range(len(data["text"])):
     refinedData["label"][str(count)] = label
     count += 1
 
-with open('data.json', 'w', encoding="utf8") as outfile:
+with open('../data.json', 'w', encoding="utf8") as outfile:
     json.dump(refinedData, outfile)

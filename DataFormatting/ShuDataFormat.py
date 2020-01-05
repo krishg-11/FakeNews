@@ -21,9 +21,9 @@ def importFolderIntoData(data, folder, count, label): #given current data dict, 
 
     return data, count
 
-path = "./fakenewsnet_dataset/"
+path = "../fakenewsnet_dataset/"
 
-data = json.load(open("data.json")) # data = {"text":{"0":"...", "1":... etc.}, "label":{"0":1, "1", 0 etc.}}
+data = json.load(open("../data.json")) # data = {"text":{"0":"...", "1":... etc.}, "label":{"0":1, "1", 0 etc.}}
 count = len(data["text"])
 
 
@@ -37,5 +37,5 @@ data, count = importFolderIntoData(data, path+"gossipcop/fake", count, 0)
 print("starting gossipcop real; count =", count)
 data, count = importFolderIntoData(data, path+"gossipcop/real", count, 1)
 
-with open('data.json', 'w', encoding="utf8") as outfile:
+with open('../data.json', 'w', encoding="utf8") as outfile:
     json.dump(data, outfile)
