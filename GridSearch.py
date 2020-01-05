@@ -46,7 +46,7 @@ def makeModel(dropout=0.2, lstmOutputSize=100, optimizer='adam'):
     model.add(SpatialDropout1D(dropout))
     model.add(LSTM(lstmOutputSize, dropout=dropout, recurrent_dropout=dropout))
     model.add(Dense(2, activation='softmax'))
-    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
     return model
 
 infile = open("hyperparameterData.csv")
@@ -73,3 +73,7 @@ for epochs,batchSize,optimizer,dropout,lstmOutputSize in itertools.product(*comb
     accr = model.evaluate(X_test,Y_test,verbose=0)
     outfile.write("{},{},{},{},{},{}\n".format(epochs,batchSize,optimizer,dropout,lstmOutputSize,accr[1]))
     accuracyDict[(epochs,batchSize,optimizer,dropout,lstmOutputSize)] = accr[1]
+
+#Best found:
+#2,64,adagrad,0.2,75,0.8316970467567444
+#2,32,adam,0.4,100,0.8330996036529541
