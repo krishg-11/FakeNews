@@ -33,22 +33,26 @@ print("X_train shape:", X_train.shape,"; Y_train shape:",Y_train.shape)
 print("X_test shape:", X_test.shape,"; Y_test shape:",Y_test.shape)
 
 
+infile = open("SVMhyperparameterData.csv")
+grid = {} #keeps track of accuracies from various combinations of hyperparameters
+for line in infile:
+    kernel,probability,acc = line.split(",")
+    grid[(kernel,probability=='True')] = float(acc)
+
+outfile = open("SVMhyperparameterData.csv", "a", 1)
 #hyperparameters
-kernel = 'rbf' #rbf, linear, poly (choose polynomiald degree (int); default=3), sigmoid, or precomputed
-probability = False #True or False
+for kernel in ['rbf', 'sigmoid', 'linear', 'poly']:
+    for probability in [True, False]:
+        if((kernel, probability) in grid): continue
 
-#make model
-print("making model")
-svclassifier = SVC(kernel=kernel, probability=probability)
+        #make model
+        svclassifier = SVC(kernel=kernel, probability=probability)
 
-#train model
-print("training model")
-svclassifier.fit(X_train, Y_train)
+        #train model
+        svclassifier.fit(X_train, Y_train)
 
-#test model
-print("testing model")
-Y_pred = svclassifier.predict(X_test)
+        #test model
+        Y_pred = svclassifier.predict(X_test)
 
-print("\nConfusion matrix:\n", confusion_matrix(Y_test,Y_pred))
-print('\n', classification_report(Y_test,Y_pred))
-print("Accuracy:", accuracy_score(Y_test, Y_pred))
+        outfile.write("{},{},{}\n".format(kernel, probability, accuracy_score(Y_test, Y_pred)))
+        print("finished kernel:", kernel, "probability:", probability)
