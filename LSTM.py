@@ -2,7 +2,7 @@ import pandas as pd
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential
-from keras.layers import Dense, Embedding, LSTM, SpatialDropout1D, Bidirectional, SimpleRNN
+from keras.layers import Dense, Embedding, LSTM, SpatialDropout1D
 from sklearn.model_selection import train_test_split
 from keras.callbacks import EarlyStopping
 from keras.layers import Dropout
@@ -38,7 +38,7 @@ print(X_test.shape,Y_test.shape)
 model = Sequential()
 model.add(Embedding(MAX_NB_WORDS, EMBEDDING_DIM, input_length=X.shape[1]))
 model.add(SpatialDropout1D(0.4))
-model.add(SimpleRNN(100, dropout=0.4, recurrent_dropout=0.4))
+model.add((LSTM(100, dropout=0.4, recurrent_dropout=0.4)))
 model.add(Dense(2, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
