@@ -57,29 +57,26 @@ def makeModel(modelType, dropout=0.2, lstmOutputSize=100, optimizer='adam'):
 infile = open("hyperparameterData.csv")
 accuracyDict = {} #keeps track of accuracies from various combinations of hyperparameters
 for line in infile:
-    epochs,batchSize,optimizer,dropout,lstmOutputSize,acc = line.split(",")
-    accuracyDict[(int(epochs),int(batchSize),optimizer,float(dropout),int(lstmOutputSize))] = float(acc)
+    modelType, epochs,batchSize,optimizer,dropout,lstmOutputSize,acc = line.split(",")
+    accuracyDict[(modelType, int(epochs),int(batchSize),optimizer,float(dropout),int(lstmOutputSize))] = float(acc)
 
 #list of all potential hyperparameters
+modelTypes = ["RNN", "LSTM", "BRNN"]
 epochsList = [1,2,3,4,5,6]
 batchSizes = [64, 32, 16]
 optimizers = ['adagrad', 'adam']
 dropouts = [0.5, 0.4, 0.2]
 lstmOutputSizes = [50, 75, 100, 150]
-modelType = "BRNN"
 
-combinations = [epochsList, batchSizes, optimizers, dropouts, lstmOutputSizes]
 
-outfile = open("hyperparameterData.csv", "a")
-for epochs,batchSize,optimizer,dropout,lstmOutputSize in itertools.product(*combinations): #make, fit, and evaluate model for each combination of hyperparameters
-    if((epochs,batchSize,optimizer,dropout,lstmOutputSize) in accuracyDict): continue
+combinations = [modelTypes, epochsList, batchSizes, optimizers, dropouts, lstmOutputSizes]
+
+outfile = open("hyperparameterData.csv", "a", 1)
+for modelType,epochs,batchSize,optimizer,dropout,lstmOutputSize in itertools.product(*combinations): #make, fit, and evaluate model for each combination of hyperparameters
+    if((modelType,epochs,batchSize,optimizer,dropout,lstmOutputSize) in accuracyDict): continue
     model = makeModel(modelType, dropout=dropout, lstmOutputSize=lstmOutputSize, optimizer=optimizer)
-    print("Running Epochs: {}; BatchSize: {}; Optimzer: {}; Dropout: {}; LstmOutputSize: {}".format(epochs,batchSize,optimizer,dropout,lstmOutputSize))
+    print("Running Model: {}; Epochs: {}; BatchSize: {}; Optimzer: {}; Dropout: {}; LstmOutputSize: {}".format(modelType, epochs,batchSize,optimizer,dropout,lstmOutputSize))
     history = model.fit(X_train, Y_train, epochs=epochs, batch_size=batchSize,validation_split=0.1,callbacks=[EarlyStopping(monitor='val_loss', patience=3, min_delta=0.0001)], verbose=0)
     accr = model.evaluate(X_test,Y_test,verbose=0)
-    outfile.write("{},{},{},{},{},{}\n".format(epochs,batchSize,optimizer,dropout,lstmOutputSize,accr[1]))
-    accuracyDict[(epochs,batchSize,optimizer,dropout,lstmOutputSize)] = accr[1]
-
-#Best found:
-#2,64,adagrad,0.2,75,0.8316970467567444
-#2,32,adam,0.4,100,0.8330996036529541
+    outfile.write("{},{},{},{},{},{},{}\n".format(modelType,epochs,batchSize,optimizer,dropout,lstmOutputSize,accr[1]))
+    accuracyDict[(modelType,epochs,batchSize,optimizer,dropout,lstmOutputSize)] = accr[1]
