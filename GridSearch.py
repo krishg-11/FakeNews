@@ -36,7 +36,7 @@ X = pad_sequences(X, maxlen=MAX_SEQUENCE_LENGTH)
 
 Y = pd.get_dummies(df['label']).values
 
-X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size = 0.10, random_state = 42)
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size = 0.20, random_state = 42)
 
 
 #returns compiled model with given parameters
@@ -49,6 +49,8 @@ def makeModel(modelType, dropout=0.2, lstmOutputSize=100, optimizer='adam'):
     elif(modelType == "LSTM"):
         model.add(LSTM(lstmOutputSize, dropout=dropout, recurrent_dropout=dropout))
     elif(modelType == "BRNN"):
+        model.add(Bidirectional(SimpleRNN(lstmOutputSize, dropout=dropout, recurrent_dropout=dropout)))
+    elif(modelType == "BLSTM"):
         model.add(Bidirectional(LSTM(lstmOutputSize, dropout=dropout, recurrent_dropout=dropout)))
     model.add(Dense(2, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
@@ -61,7 +63,7 @@ for line in infile:
     accuracyDict[(modelType, int(epochs),int(batchSize),optimizer,float(dropout),int(lstmOutputSize))] = float(acc)
 
 #list of all potential hyperparameters
-modelTypes = ["RNN", "LSTM", "BRNN"]
+modelTypes = ["RNN", "LSTM", "BLSTM", "BRNN"]
 epochsList = [1,2,3,4,5,6]
 batchSizes = [64, 32, 16]
 optimizers = ['adagrad', 'adam']
