@@ -1,9 +1,0 @@
-
-Command 'python' not found, but can be installed with:
-
-sudo apt install python3       
-sudo apt install python        
-sudo apt install python-minimal
-
-You also have python3 installed, you can run 'python3' instead.
-
